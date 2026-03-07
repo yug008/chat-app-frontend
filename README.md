@@ -83,6 +83,14 @@ Backend repo: [chat-app-backend](https://github.com/yug008/chat-app-backend)
 
 ## 📸 Screenshots
 
+### Login
+![Login](screenshots/login.png)
+
+### Public Chat
+![Public Chat](screenshots/public-chat.png)
+
+### Private Chat
+![Private Chat](screenshots/private-chat.png)
 
 
 ---
