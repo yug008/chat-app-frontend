@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
+const BACKEND_URL = 'https://chat-app-backend-178i.onrender.com';
 
 export default function Chat({ username, token, onLogout }) {
   const [messages, setMessages] = useState([]);
@@ -22,7 +23,7 @@ export default function Chat({ username, token, onLogout }) {
 
   // Fetch user list
   useEffect(() => {
-    fetch('http://localhost:8080/api/users', {
+    fetch(`${BACKEND_URL}/api/users`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -32,7 +33,7 @@ export default function Chat({ username, token, onLogout }) {
 
   // Load public chat history on mount
   useEffect(() => {
-    fetch('http://localhost:8080/api/history', {
+    fetch(`${BACKEND_URL}/api/history`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -43,7 +44,7 @@ export default function Chat({ username, token, onLogout }) {
   // Load private conversation history when selecting a user
   useEffect(() => {
     if (!selectedUser) return;
-    fetch(`http://localhost:8080/api/conversation?user1=${username}&user2=${selectedUser}`, {
+    fetch(`${BACKEND_URL}/api/conversation?user1=${username}&user2=${selectedUser}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -53,7 +54,7 @@ export default function Chat({ username, token, onLogout }) {
 
   // Connect WebSocket
   useEffect(() => {
-    const socket = new SockJS(`http://localhost:8080/ws?username=${username}`);
+    const socket = new SockJS(`${BACKEND_URL}/ws?username=${username}`);
     const client = new Client({
       webSocketFactory: () => socket,
       onConnect: () => {
