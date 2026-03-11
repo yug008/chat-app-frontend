@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const BACKEND_URL = 'https://chat-app-backend-178i.onrender.com';
 
 export default function Auth({ onLogin }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -13,8 +14,8 @@ export default function Auth({ onLogin }) {
     setLoading(true);
 
     const url = isLogin
-      ? 'http://localhost:8080/api/auth/authenticate'
-      : 'http://localhost:8080/api/auth/register';
+     ? `${BACKEND_URL}/api/auth/authenticate`
+  : `${BACKEND_URL}/api/auth/register`;
 
     try {
       const response = await fetch(url, {
