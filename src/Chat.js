@@ -143,7 +143,7 @@ export default function Chat({ username, token, onLogout }) {
         type: 'READ',
       }),
     });
-  }, [selectedUser, connected]);
+  }, [selectedUser, connected, username]);
 
   // Auto scroll
   useEffect(() => {
