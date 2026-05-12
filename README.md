@@ -2,7 +2,10 @@
 
 A real-time full-stack chat application built with **React** and **Spring Boot**. This is the frontend repository.
 
-🔗 **Backend Repository:** [chat-app-backend](https://github.com/yug008/chat-app-backend)
+## 🔗 Links
+- **Live Site:** https://ecommerce-frontend-orcin-omega.vercel.app
+- **Backend Repo:** https://github.com/yug008/chat-app-backend
+- **Frontend Repo:** https://github.com/yug008/chat-app-frontend
 
 ---
 
